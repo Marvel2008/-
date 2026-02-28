@@ -9,13 +9,12 @@ class App:
         self.root = root
         self.root.title("Gender Bias Detector")
         self.root.geometry("600x480")
-        self.root.configure(bg="#1e1e1e")  # темний фон
+        self.root.configure(bg="#1e1e1e")
 
         self.analyzer = SentimentAnalyzer()
         self.build_ui()
 
     def build_ui(self):
-        # --- заголовок ---
         title = tk.Label(
             self.root,
             text="Аналіз сентименту та гендерної упередженості",
@@ -25,7 +24,6 @@ class App:
         )
         title.pack(pady=15)
 
-        # --- рамка для вводу ---
         entry_frame = tk.Frame(self.root, bg="#2e2e2e", bd=2, relief=tk.RIDGE)
         entry_frame.pack(pady=10, padx=20, fill="x")
 
@@ -40,43 +38,39 @@ class App:
         )
         self.entry.pack(padx=5, pady=5)
 
-        # --- кнопки ---
         btn_frame = tk.Frame(self.root, bg="#1e1e1e")
         btn_frame.pack(pady=10)
 
-        # Кнопка для сентименту
         analyze_btn = tk.Button(
             btn_frame,
             text="Аналіз сентименту",
             command=self.run_sentiment,
-            bg="#6fa8ff",       # світло-синій фон
-            fg="black",         # текст чорний завжди
+            bg="#6fa8ff",       
+            fg="black",         
             font=("Helvetica", 12, "bold"),
             width=20,
             bd=0,
             relief=tk.RAISED,
-            activebackground="#4a90e2",  # темніший при натисканні
-            activeforeground="black"      # текст залишився чорним
+            activebackground="#4a90e2",  
+            activeforeground="black"      
         )
         analyze_btn.grid(row=0, column=0, padx=10, pady=5)
 
-        # Кнопка для bias
         bias_btn = tk.Button(
             btn_frame,
             text="Перевірити гендерну упередженість",
             command=self.run_bias,
-            bg="#ff7fa0",       # світло-червоний фон
-            fg="black",         # текст чорний завжди
+            bg="#ff7fa0",       
+            fg="black",         
             font=("Helvetica", 12, "bold"),
             width=28,
             bd=0,
             relief=tk.RAISED,
-            activebackground="#e94e77",  # темніший червоний при натисканні
-            activeforeground="black"      # текст залишився чорним
+            activebackground="#e94e77",  
+            activeforeground="black"      
         )
         bias_btn.grid(row=0, column=1, padx=10, pady=5)
 
-        # --- рамка для результатів ---
         result_frame = tk.LabelFrame(
             self.root,
             text="Результати",
