@@ -46,9 +46,7 @@ def calculate_bias(analyzer, text):
     return "Bias calculated", bias
 
 def interpret_bias(bias):
-    """
-    Інтерпретація числового показника упередженості
-    """
+    
     if bias < 0.02:
         return "LOW bias"
     elif bias < 0.05:
